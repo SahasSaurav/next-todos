@@ -7,7 +7,7 @@ const NewTodo = () => {
 
 
   const [todoDesc, setTodoDesc] = useState('');
-  const [completed, setCompleted] = useState(false);
+  const [completed, setCompleted] = useState(true);
 
   const onSubmitHandle=(e)=>{
     e.preventDefault()
@@ -23,7 +23,10 @@ const NewTodo = () => {
 
   return (
     <form onSubmit={onSubmitHandle} className="flex justify-center items-center p-4 focus-within:ring  w- full bg-gray-700 m-4 rounded-lg">
-      <input type="checkbox" className="h-6 w-6  appearance-none rounded-full outline-none checkbox" aria-label="Mark completed todo" checked={completed} onChange={(e)=>setCompleted(e.target.checked)} />
+      <div className=" flex">
+        <input type="checkbox" className="h-6 w-6  appearance-none rounded-full outline-none checkbox" aria-label="Mark completed todo" checked={completed} onChange={(e)=>setCompleted(e.target.checked)} />
+        <span className={`block h-6 w-6 check-img ${completed===false?'opacity-0':'opacity-100'} `}> </span>
+      </div>
       <input
         type="text"
         value={todoDesc}

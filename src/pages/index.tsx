@@ -1,9 +1,11 @@
 import Head from "next/head";
+// import {useState,useEffect} from 'react';
 import NewTodo from "../componets/NewTodo";
 import TodoHeader from "../componets/TodoHeader";
 import TodosList from "../componets/TodosList";
 
 const Home: React.FC = (props) => {
+  
   return (
     <>
       <Head>

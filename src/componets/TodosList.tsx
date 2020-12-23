@@ -1,19 +1,14 @@
 import { useContext, useState } from "react";
-import { TodosContext,Todo } from "../context/TodosContext";
+import { TodosContext, Todo } from "../context/TodosContext";
 import FilterMenu from "./FIlterMenu";
 import TodoItem from "./TodoItem";
-
-interface TodoListContext{
-  todos:Todo[],
-  clearCompleted:()=>void
-}
 
 const TodosList = () => {
   const { todos, clearCompleted } = useContext(TodosContext);
 
   const [filterBy, setFilterBy] = useState<String>("all");
 
-  const filters:()=>Todo[] = () => {
+  const filters: () => Todo[] = () => {
     let newTodos;
     switch (filterBy) {
       case "all":
@@ -31,21 +26,28 @@ const TodosList = () => {
   };
 
   return (
-    <ul className="m-4 bg-gray-700 rounded-lg divide-y divide-gray-400">
-      {filters().map((todo) => {
-        return <TodoItem todo={todo} key={todo.id} />;
-      })}
-      <li className=" flex justify-between items-center p-4 text-gray-50">
-        <span>{todos.length} items left</span>
-        <FilterMenu filterBy={filterBy} setFilterBy={setFilterBy} />
-        <button
-          onClick={clearCompleted}
-          className="p-1 cursor-pointer hover:underline focus:text-blue-500 focus:outline-none"
-        >
-          Clear Completed
-        </button>
-      </li>
-    </ul>
+    <>
+      <ul className="m-4 bg-gray-700 rounded-lg divide-y divide-gray-400">
+        {filters().map((todo) => {
+          return <TodoItem todo={todo} key={todo.id} />;
+        })}
+        <li className=" flex justify-between items-center p-4 text-gray-50">
+          <span>{todos.length} items left</span>
+         <span className="hidden sm:block" >
+         <FilterMenu filterBy={filterBy} setFilterBy={setFilterBy} />
+         </span>
+          <button
+            onClick={clearCompleted}
+            className="p-1 cursor-pointer hover:underline focus:text-blue-500 focus:outline-none"
+          >
+            Clear Completed
+          </button>
+        </li>
+      </ul>
+      <div className="max-w-xl mx-4 mt-8 mb-4 bg-gray-700 rounded-lg divide-y divide-gray-400 h-full  flex justify-center  items-center p-4 text-gray-50 sm:hidden">
+        <FilterMenu filterBy={filterBy} setFilterBy={setFilterBy}  />
+      </div>
+    </>
   );
 };
 

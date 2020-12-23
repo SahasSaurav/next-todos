@@ -7,8 +7,9 @@
   transition-duration: 350ms;
 }
 .checkbox{
-  background-color:  white;
+  background-color: rgb(255, 255, 255) ;
   cursor: pointer;
+  position :relative;
 }
 .checkbox:hover{
   border: 2.5px solid hsl(280, 87%, 65%);
@@ -16,6 +17,16 @@
 .checkbox:checked{
   background-image: linear-gradient(to  bottom right,hsl(192, 100%, 67%) , hsl(280, 87%, 65%) );
 }
+.check-img{
+  background-image: url('../assets/images/icon-check.svg');
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  background-position: center center;
+  position:absolute;
+  cursor: pointer;
+  pointer-events: none;
+}
+
 .delete-btn{
   display: none;
 }
