@@ -1,0 +1,24 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+* {
+  transition-property: background-color,color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 350ms;
+}
+.checkbox{
+  background-color:  white;
+  cursor: pointer;
+}
+.checkbox:hover{
+  border: 2.5px solid hsl(280, 87%, 65%);
+}
+.checkbox:checked{
+  background-image: linear-gradient(to  bottom right,hsl(192, 100%, 67%) , hsl(280, 87%, 65%) );
+}
+.delete-btn{
+  display: none;
+}
+.list-item:hover .delete-btn{
+  display: block;
+}
