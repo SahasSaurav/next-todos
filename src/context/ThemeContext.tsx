@@ -9,10 +9,12 @@ const themeInitialState: Theme = {
   darkMode: true,
 };
 
+
+
 export const ThemeContext = createContext(themeInitialState);
 
 
-const ThemeProvider: React.FC = ({ children }) => {
+const ThemeProvider: React.FC<{children:React.ReactNode}> = ({ children }) => {
   const [themeState, themeDispatch] = useReducer(
     themeReducer,
     themeInitialState,

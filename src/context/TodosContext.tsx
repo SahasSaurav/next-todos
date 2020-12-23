@@ -44,23 +44,23 @@ const todoInitialState: Todo[] = [
 
 export const TodosContext = createContext(todoInitialState);
 
-const TodosProvider: React.FC = ({ children }) => {
+const TodosProvider: React.FC<{ children: React.ReactNode }> = ({children}) => {
   const [todoState, todoDispatch] = useReducer(todoReducer, todoInitialState);
 
-  const moveItem = (id:string, new_id:string) => {
+  const moveItem = (id: string, new_id: string) => {
     todoDispatch({
       type: "DRAG",
       payload: { id, new_id },
     });
   };
 
-  const addNewTodo = (item:Todo) => {
+  const addNewTodo = (item: Todo) => {
     todoDispatch({
       type: "ADD-TODO",
       payload: item,
     });
   };
-  const deleteTodo = (id:string) => {
+  const deleteTodo = (id: string) => {
     todoDispatch({
       type: "DELETE-TODO",
       payload: id,
@@ -71,12 +71,13 @@ const TodosProvider: React.FC = ({ children }) => {
       type: "CLEAR-COMPLETED",
     });
   };
-  const toggleCompleted = (id:string) => {
+  const toggleCompleted = (id: string) => {
     todoDispatch({
       type: "TOGGLE-COMPLETED",
       payload: id,
     });
   };
+
   return (
     <TodosContext.Provider
       value={{

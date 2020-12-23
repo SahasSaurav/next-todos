@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { TodosContext,Todo } from "../context/TodosContext";
+import FilterMenu from "./FIlterMenu";
 import TodoItem from "./TodoItem";
 
 interface TodoListContext{
@@ -36,36 +37,7 @@ const TodosList = () => {
       })}
       <li className=" flex justify-between items-center p-4 text-gray-50">
         <span>{todos.length} items left</span>
-        <div className="space-x-4">
-          <button
-            onClick={(e) => setFilterBy("all")}
-            aria-label='Filter by all todo'
-            className={`p-1 cursor-pointer hover:underline focus:outline-none ${
-              filterBy === "all" ? "text-blue-500" : ""
-            } `}
-          >
-            All
-          </button>
-          <button
-            onClick={(e) => setFilterBy("active")}
-            aria-label='Filter by active todo'
-            className={`p-1 cursor-pointer hover:underline  focus:outline-none ${
-              filterBy === "active" ? "text-blue-500" : ""
-            } `}
-          >
-            Active
-          </button>
-          <button
-            onClick={(e) => setFilterBy("completed")}
-            aria-label='Filter by completed todo'
-            className={`p-1 cursor-pointer hover:underline  focus:outline-none ${
-              filterBy === "completed" ? "text-blue-500" : ""
-            } `}
-          >
-            {" "}
-            Completed
-          </button>
-        </div>
+        <FilterMenu filterBy={filterBy} setFilterBy={setFilterBy} />
         <button
           onClick={clearCompleted}
           className="p-1 cursor-pointer hover:underline focus:text-blue-500 focus:outline-none"

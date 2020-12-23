@@ -7,8 +7,9 @@ const Checkbox = () => {
         type="checkbox"
         className="h-6 w-6  appearance-none rounded-full outline-none checkbox"
         checked={completed}
-        onChange={(e) => setCompleted(e.target.checked)}
+        onChange={(e) => setCompleted(e.target.checked)} id="completed"
       />
+      <label htmlFor="completed"></label>
     </>
   );
 };

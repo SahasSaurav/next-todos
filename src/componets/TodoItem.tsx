@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { TodosContext,Todo } from "../context/TodosContext";
+import { TodosContext, Todo } from "../context/TodosContext";
 
-interface TodoItemProps{
-  todo:Todo
+interface TodoItemProps {
+  todo: Todo;
 }
 
-const TodoItem: React.FC<TodoItemProps>= ({ todo }) => {
-  const { deleteTodo, toggleCompleted, moveItem } = useContext(TodosContext);
+
+const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
+  const { deleteTodo, toggleCompleted, moveItem } = useContext(TodosContext)
   const [, drag] = useDrag({
     item: {
       id: todo.id,
