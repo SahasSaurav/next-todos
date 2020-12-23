@@ -6,7 +6,7 @@ const ToggleButton: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-1 flex justify-center items-center "
+      className="p-1 flex justify-center items-center focus:outline-none focus:ring-2 focus:ring-indigo-500 "
     >
       {darkMode && (
         <img

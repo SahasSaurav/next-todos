@@ -33,7 +33,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
       <div ref={drag} className="flex justify-start items-center">
         <div className=" flex">
         <input type="checkbox" className="h-6 w-6  appearance-none rounded-full outline-none checkbox" aria-label="Mark completed todo" checked={todo.completed} onChange={() => toggleCompleted(todo.id)} />
-        <span className={`block h-6 w-6 check-img ${todo.completed===false?'opacity-0':'opacity-100'} `}>      </span>
+        <span className={`block h-6 w-6 check-img ${todo.completed===false?'opacity-0':'opacity-100'} `}> </span>
       </div>
         <p
           className={`px-4 py-2 h-12 text-xl ${

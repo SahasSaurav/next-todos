@@ -13,7 +13,11 @@ module.exports = {
   ],
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "josefin-sans": ["Josefin Sans", "sans-serif"],
+      },
+    },
   },
   variants: {
     extend: {},

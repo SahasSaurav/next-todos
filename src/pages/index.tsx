@@ -4,7 +4,7 @@ import NewTodo from "../componets/NewTodo";
 import TodoHeader from "../componets/TodoHeader";
 import TodosList from "../componets/TodosList";
 
-const Home: React.FC = (props) => {
+const Home: React.FC= (props) => {
   
   return (
     <>
@@ -13,7 +13,7 @@ const Home: React.FC = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Todo App</title>
       </Head>
-      <div className="container mx-auto px-4 py-4 ">
+      <div className="container mx-auto px-4 py-4 font-josefin-sans ">
         <main className="max-w-xl bg-red-500 dark:bg-green-500 h-full mx-auto flex flex-col ">
           <TodoHeader />
           <main>
