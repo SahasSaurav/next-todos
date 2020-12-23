@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
-import { TodosContext, Todo } from "../context/TodosContext";
-import FilterMenu from "./FIlterMenu";
+import { TodosContext, Todo, TodosContextType } from "../context/TodosContext";
+import FilterMenu from "./FilterMenu";
 import TodoItem from "./TodoItem";
 
 const TodosList = () => {
-  const { todos, clearCompleted } = useContext(TodosContext);
+  const { todos, clearCompleted } = useContext(TodosContext) as unknown as TodosContextType;
 
   const [filterBy, setFilterBy] = useState<String>("all");
 

@@ -8,6 +8,14 @@ export interface Todo {
   completed: boolean;
   toShow: boolean;
 }
+export interface TodosContextType {
+  todos: Todo[];
+  moveItem: (id: string, new_id: string) => void;
+  addNewTodo: (item: Todo) => void;
+  deleteTodo: (id: String) => void;
+  clearCompleted: () => void;
+  toggleCompleted: (id: String) => void;
+}
 
 const todoInitialState: Todo[] = [
   {
@@ -44,7 +52,9 @@ const todoInitialState: Todo[] = [
 
 export const TodosContext = createContext(todoInitialState);
 
-const TodosProvider: React.FC<{ children: React.ReactNode }> = ({children}) => {
+const TodosProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [todoState, todoDispatch] = useReducer(todoReducer, todoInitialState);
 
   const moveItem = (id: string, new_id: string) => {

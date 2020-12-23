@@ -9,7 +9,10 @@ const themeInitialState: Theme = {
   darkMode: true,
 };
 
-
+export interface ThemeContextType{
+  darkMode:boolean,
+  toggleTheme:()=>void
+}
 
 export const ThemeContext = createContext(themeInitialState);
 
@@ -26,7 +29,7 @@ const ThemeProvider: React.FC<{children:React.ReactNode}> = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ ...themeState, toggleTheme }}>
+    <ThemeContext.Provider value={{ ...themeState, toggleTheme  }}>
       {children}
     </ThemeContext.Provider>
   );
