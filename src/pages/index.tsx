@@ -1,30 +1,43 @@
 import Head from "next/head";
-// import {useState,useEffect} from 'react';
+import Image from "next/image";
+import { useContext } from "react";
 import NewTodo from "../componets/NewTodo";
 import TodoHeader from "../componets/TodoHeader";
 import TodosList from "../componets/TodosList";
+import { ThemeContext, ThemeContextType } from "../context/ThemeContext";
+import a from "../assets/images";
 
 const Home: React.FC = (props) => {
+  const { darkMode } = useContext(ThemeContext) as ThemeContextType;
   return (
     <>
       <Head>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Todo App</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
       </Head>
+      <div className="h-48 sm:-64 md:h-80  bg-white ">
+        {darkMode == false && (
+          <img
+            src="/images/bg-desktop-dark.jpg"
+            alt="background image" className="h-full w-full  object-cover"
+          />
+        )}
+        {darkMode == true && (
+          <img
+            src="/images/bg-desktop-light.jpg"
+            alt="background image"
+            className="h-full w-full  object-cover"
+          />
+        )}
+      </div>
       <div className="container mx-auto px-4 py-4 font-josefin-sans ">
-        <main className="max-w-xl bg-transparent h-full mx-auto flex flex-col ">
+        <main className="max-w-xl bg-transparent h-full mx-auto flex flex-col transform  -translate-y-40 md:-translate-y-64 ">
           <TodoHeader />
           <main>
             <NewTodo />
             <TodosList />
           </main>
-          <p className="text-gray-700 font-medium text-lg mx-auto mb-6">
+          <p className="text-gray-700  dark:text-gray-400 font-medium text-lg mx-auto mt-6 mb-6">
             Drag and drop to reorder list
           </p>
         </main>

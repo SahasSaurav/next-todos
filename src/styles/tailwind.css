@@ -7,7 +7,7 @@
   transition-duration: 350ms;
 }
 body{
-  @apply bg-gray-800 dark:bg-white;
+  @apply dark:bg-gray-900 bg-gray-100;
 }
 .checkbox{
   cursor: pointer;

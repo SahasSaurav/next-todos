@@ -27,7 +27,7 @@ const TodosList = () => {
 
   return (
     <>
-      <ul className="m-4 bg-gray-100 dark:bg-gray-700 rounded-lg divide-y divide-gray-400 shadow-lg">
+      <ul className="m-4 bg-white dark:bg-gray-700 rounded-lg divide-y divide-gray-400 shadow-lg">
         {filters().map((todo) => {
           return <TodoItem todo={todo} key={todo.id} />;
         })}
