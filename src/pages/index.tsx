@@ -6,7 +6,6 @@ import TodoHeader from "../componets/TodoHeader";
 import TodosList from "../componets/TodosList";
 import { ThemeContext, ThemeContextType } from "../context/ThemeContext";
 
-
 const Home: React.FC = (props) => {
   const { darkMode } = useContext(ThemeContext) as ThemeContextType;
   return (
@@ -15,11 +14,12 @@ const Home: React.FC = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Todo App</title>
       </Head>
-      <div className="h-48 sm:-64 md:h-80  bg-white ">
+      <div className="h-48 sm:-64 md:h-80  bg-white dark:bg-gray-900 ">
         {darkMode == false && (
           <img
             src="/images/bg-desktop-dark.jpg"
-            alt="background image" className="h-full w-full  object-cover"
+            alt="background image"
+            className="h-full w-full  object-cover"
           />
         )}
         {darkMode == true && (
