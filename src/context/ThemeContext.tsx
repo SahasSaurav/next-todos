@@ -17,12 +17,14 @@ export interface ThemeContextType{
 export const ThemeContext = createContext(themeInitialState);
 
 
+
 const ThemeProvider: React.FC<{children:React.ReactNode}> = ({ children }) => {
   const [themeState, themeDispatch] = useReducer(
     themeReducer,
     themeInitialState,
-    // () => JSON.parse(localStorage?.getItem("darkMode")) 
   );
+
+  
 
   const toggleTheme = () => {
     themeDispatch({ type: "TOGGLE-THEME" });
