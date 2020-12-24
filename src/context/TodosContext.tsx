@@ -17,7 +17,7 @@ export interface TodosContextType {
   toggleCompleted: (id: String) => void;
 }
 
-const todoInitialState: Todo[] = [
+let todoInitialState: Todo[] = [
   {
     id: uuid(),
     text: "Complete online JavaScript course",
@@ -50,7 +50,7 @@ const todoInitialState: Todo[] = [
   },
 ];
 
-export const TodosContext = createContext(todoInitialState);
+export const TodosContext = createContext<TodosContextType>(null);
 
 const TodosProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -87,11 +87,12 @@ const TodosProvider: React.FC<{ children: React.ReactNode }> = ({
       payload: id,
     });
   };
+  
 
   return (
     <TodosContext.Provider
       value={{
-        todos: todoState,
+        todos:todoState,
         addNewTodo,
         deleteTodo,
         clearCompleted,
