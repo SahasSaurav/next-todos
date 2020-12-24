@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import { useContext } from "react";
 import NewTodo from "../componets/NewTodo";
 import TodoHeader from "../componets/TodoHeader";
