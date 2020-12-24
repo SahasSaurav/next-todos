@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { ThemeContextType } from "../context/ThemeContext";
 import { TodosContext, Todo, TodosContextType } from "../context/TodosContext";
 
 interface TodoItemProps {
@@ -30,15 +29,15 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   });
 
   return (
-    <li ref={drop} className="list-item w-full p-4 outline-none text-gray-50 ">
+    <li ref={drop} className="list-item w-full p-4 outline-none text-gray-700 dark:text-gray-50 ">
       <div ref={drag} className="flex justify-start items-center">
         <div className=" flex">
-        <input type="checkbox" className="h-6 w-6  appearance-none rounded-full outline-none checkbox" aria-label="Mark completed todo" checked={todo.completed} onChange={() => toggleCompleted(todo.id)} />
+        <input type="checkbox" className="h-6 w-6  appearance-none rounded-full outline-none checkbox border-2  border-gray-500 dark:border-gray-50" aria-label="Mark completed todo" checked={todo.completed} onChange={() => toggleCompleted(todo.id)} />
         <span className={`block h-6 w-6 check-img ${todo.completed===false?'opacity-0':'opacity-100'} `}> </span>
       </div>
         <p
           className={`px-4 py-2 h-12 text-xl ${
-            todo.completed === true ? "line-through text-gray-300" : ""
+            todo.completed === true ? "line-through text-gray-500 dark:text-gray-300" : ""
           }`}
         >
           {todo.text}

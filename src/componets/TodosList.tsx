@@ -27,11 +27,11 @@ const TodosList = () => {
 
   return (
     <>
-      <ul className="m-4 bg-gray-700 rounded-lg divide-y divide-gray-400">
+      <ul className="m-4 bg-gray-100 dark:bg-gray-700 rounded-lg divide-y divide-gray-400 shadow-lg">
         {filters().map((todo) => {
           return <TodoItem todo={todo} key={todo.id} />;
         })}
-        <li className=" flex justify-between items-center p-4 text-gray-50">
+        <li className=" flex justify-between items-center p-4 text-gray-600 dark:text-gray-50">
           <span>{todos.length} items left</span>
          <span className="hidden sm:block" >
          <FilterMenu filterBy={filterBy} setFilterBy={setFilterBy} />
@@ -44,7 +44,7 @@ const TodosList = () => {
           </button>
         </li>
       </ul>
-      <div className="max-w-xl mx-4 mt-8 mb-4 bg-gray-700 rounded-lg divide-y divide-gray-400 h-full  flex justify-center  items-center p-4 text-gray-50 sm:hidden">
+      <div className="max-w-xl mx-4 mt-8 mb-4 bg-gray-100 dark:bg-gray-700 rounded-lg divide-y divide-gray-400 h-full  flex justify-center  items-center p-4 text-gray-700 dark:text-gray-50 sm:hidden">
         <FilterMenu filterBy={filterBy} setFilterBy={setFilterBy}  />
       </div>
     </>

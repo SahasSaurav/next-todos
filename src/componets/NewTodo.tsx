@@ -23,22 +23,21 @@ const NewTodo = () => {
   return (
     <form
       onSubmit={onSubmitHandle}
-      className="flex justify-center items-center p-4 focus-within:ring  w- full bg-gray-700 m-4 rounded-lg"
+      className="flex justify-center items-center p-4 focus-within:ring  w- full  bg-gray-100 dark:bg-gray-700 m-4 rounded-lg shadow-md"
     >
       <div className=" flex">
         <input
           type="checkbox"
-          className="h-6 w-6  appearance-none rounded-full outline-none checkbox"
+          className="h-6 w-6  appearance-none rounded-full outline-none checkbox border-2  border-gray-500 dark:border-gray-50 "
           aria-label="Mark completed todo"
           checked={completed}
           onChange={(e) => setCompleted(e.target.checked)}
         />
         <span
-          className={`block h-6 w-6 check-img ${
+          className={`block h-6 w-6 check-img rounded-full ${
             completed === false ? "opacity-0" : "opacity-100"
           } `}
         >
-          {" "}
         </span>
       </div>
       <input
@@ -47,7 +46,7 @@ const NewTodo = () => {
         onChange={(e) => setTodoDesc(e.target.value)}
         placeholder="Create a new todo..."
         aria-label="Create a new todo"
-        className=" bg-gray-700 block h-12 w-full py-2 px-4 outline-none text-gray-50 placeholder-gray-50 text-xl "
+        className=" bg-gray-100 dark:bg-gray-700 block h-12 w-full py-2 px-4 outline-none text-gray-700 dark:text-gray-50 placeholder-gray-700 dark:placeholder-gray-50 text-xl "
       />
     </form>
   );

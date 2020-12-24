@@ -4,17 +4,21 @@ import NewTodo from "../componets/NewTodo";
 import TodoHeader from "../componets/TodoHeader";
 import TodosList from "../componets/TodosList";
 
-const Home: React.FC= (props) => {
-  
+const Home: React.FC = (props) => {
   return (
     <>
       <Head>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Todo App</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <div className="container mx-auto px-4 py-4 font-josefin-sans ">
-        <main className="max-w-xl bg-red-500 dark:bg-green-500 h-full mx-auto flex flex-col ">
+        <main className="max-w-xl bg-transparent h-full mx-auto flex flex-col ">
           <TodoHeader />
           <main>
             <NewTodo />

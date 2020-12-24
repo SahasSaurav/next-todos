@@ -2,12 +2,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 * {
-  transition-property: background-color,color;
+  transition-property: background-color;
   transition-timing-function: ease-in-out;
   transition-duration: 350ms;
 }
+body{
+  @apply bg-gray-800 dark:bg-white;
+}
 .checkbox{
-  background-color: rgb(255, 255, 255) ;
   cursor: pointer;
   position :relative;
 }
@@ -16,6 +18,7 @@
 }
 .checkbox:checked{
   background-image: linear-gradient(to  bottom right,hsl(192, 100%, 67%) , hsl(280, 87%, 65%) );
+  border-color: transparent;
 }
 .check-img{
   background-image: url('../assets/images/icon-check.svg');
