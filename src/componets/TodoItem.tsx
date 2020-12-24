@@ -23,6 +23,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   });
   const [, drop] = useDrop({
     accept: "item",
+
     drop: (item: { id: string; type: string }, monitor) =>
       moveItem(item?.id, todo.id),
     collect: (monitor) => ({
