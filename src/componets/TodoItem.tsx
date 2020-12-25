@@ -67,7 +67,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 fill-current text-gray-50  transform scale-110 "
+            className="h-5 w-5 fill-current text-gray-700 dark:text-gray-50  transform scale-110  hover:font-bold"
           >
             <path
               fillRule="evenodd"
