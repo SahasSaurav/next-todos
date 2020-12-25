@@ -1,4 +1,12 @@
-export const todoReducer = (state, action) => {
+import { Todo } from '../context/TodosContext';
+
+type TodoActionType = | { type: 'ADD-TODO', payload: Todo } |
+{ type: 'DELETE-TODO', payload: String } |
+{ type: 'TOGGLE-COMPLETED', payload: String } |
+{ type: 'CLEAR-COMPLETED' } |
+{ type: 'DRAG', payload: { id: String, new_id: String } }
+
+export const todoReducer = (state:Todo[], action: TodoActionType) => {
   switch (action.type) {
     case 'ADD-TODO': return [action.payload, ...state]
     case 'DELETE-TODO': return state.filter((todo) => todo.id !== action.payload)

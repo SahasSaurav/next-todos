@@ -6,7 +6,7 @@ const NewTodo = () => {
   const { addNewTodo } = useContext(TodosContext) as unknown as TodosContextType;
 
   const [todoDesc, setTodoDesc] = useState("");
-  const [completed, setCompleted] = useState(true);
+  const [completed, setCompleted] = useState(false);
 
   const onSubmitHandle = (e) => {
     e.preventDefault();

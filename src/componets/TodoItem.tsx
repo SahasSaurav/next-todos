@@ -7,9 +7,7 @@ interface TodoItemProps {
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
-  const { deleteTodo, toggleCompleted, moveItem } = (useContext(
-    TodosContext
-  ) as unknown) as TodosContextType;
+  const { deleteTodo, toggleCompleted, moveItem } = (useContext(TodosContext) as unknown) as TodosContextType;
   const [, drag] = useDrag({
     item: {
       id: todo.id,

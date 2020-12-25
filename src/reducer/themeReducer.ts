@@ -1,4 +1,8 @@
-export const themeReducer = (state, action) => {
+import {Theme} from '../context/ThemeContext';
+
+type ThemeActionType=| {type:'TOGGLE-THEME'}
+
+export const themeReducer = (state:Theme, action:ThemeActionType) => {
   switch (action.type) {
     case "TOGGLE-THEME":
       const darkMode: boolean = state.darkMode;

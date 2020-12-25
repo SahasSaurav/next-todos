@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 import { themeReducer } from "../reducer/themeReducer";
 
-interface Theme {
+export interface Theme {
   darkMode: boolean;
 }
 
