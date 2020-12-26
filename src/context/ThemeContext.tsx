@@ -1,31 +1,29 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer,useEffect } from "react";
+import withLocalStorage from "../hoc/withLocalStorage";
 import { themeReducer } from "../reducer/themeReducer";
-
-export interface Theme {
-  darkMode: boolean;
-}
+import {Todo} from '../types/TodoTypes'
+import {Theme,ThemeContextType,ThemeContextProps} from '../types/ThemeTypes'
 
 const themeInitialState: Theme = {
   darkMode: true,
 };
 
-export interface ThemeContextType {
-  darkMode: boolean;
-  toggleTheme: () => void;
-}
-
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
-const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+const ThemeProvider: React.FC<ThemeContextProps> = ({children,theme,}) => {
+  console.log(theme);
   const [themeState, themeDispatch] = useReducer(
     themeReducer,
-    themeInitialState
+    themeInitialState,
+    // ()=> themetheme:themeInitialState,
   );
 
-  const toggleTheme: () => void = () => {
-    themeDispatch({ type: "TOGGLE-THEME" });
+  useEffect(() => {
+      localStorage.setItem('theme',JSON.stringify(themeState))
+  }, [themeState])
+
+  const toggleTheme = (darkMode:boolean) => {
+    themeDispatch({ type: "TOGGLE-THEME",payload:darkMode });
   };
 
   return (
@@ -37,4 +35,4 @@ const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-export default ThemeProvider;
+export default withLocalStorage(ThemeProvider);

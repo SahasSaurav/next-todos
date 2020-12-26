@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { TodosContext, Todo, TodosContextType } from "../context/TodosContext";
-
+import { TodosContext,} from "../context/TodosContext";
+import {Todo, TodosContextType } from '../types/TodoTypes'
 interface TodoItemProps {
   todo: Todo;
 }
@@ -23,7 +23,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
     accept: "item",
 
     drop: (item: { id: string; type: string }, monitor) =>
-      moveItem(item?.id, todo.id),
+      moveItem(item.id, todo.id),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),

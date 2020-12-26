@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import { ThemeContext, ThemeContextType } from "../context/ThemeContext";
+import { ThemeContext } from "../context/ThemeContext";
+import {ThemeContextType} from '../types/ThemeTypes'
+
 
 const ToggleButton: React.FC = () => {
   const { darkMode, toggleTheme } = useContext(ThemeContext) as ThemeContextType;
   return (
     <button
-      onClick={toggleTheme}
+      onClick={()=>toggleTheme(darkMode)}
       className="p-1 flex justify-center items-center focus:outline-none focus:ring-2 focus:ring-indigo-500 "
     >
       {darkMode && (

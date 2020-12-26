@@ -3,7 +3,8 @@ import { useContext } from "react";
 import NewTodo from "../componets/NewTodo";
 import TodoHeader from "../componets/TodoHeader";
 import TodosList from "../componets/TodosList";
-import { ThemeContext, ThemeContextType } from "../context/ThemeContext";
+import { ThemeContext } from "../context/ThemeContext";
+import {ThemeContextType} from '../types/ThemeTypes';
 
 const Home: React.FC = (props) => {
   const { darkMode } = useContext(ThemeContext) as ThemeContextType;

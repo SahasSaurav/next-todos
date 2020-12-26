@@ -1,19 +1,16 @@
-import {Theme} from '../context/ThemeContext';
+import { Theme, ThemeActionType } from '../types/ThemeTypes';
 
-type ThemeActionType=| {type:'TOGGLE-THEME'}
-
-export const themeReducer = (state:Theme, action:ThemeActionType) => {
+export const themeReducer = (state: Theme, action: ThemeActionType) => {
   switch (action.type) {
     case "TOGGLE-THEME":
-      const darkMode: boolean = state.darkMode;
+      const darkMode: boolean = action.payload;
       const root = document.documentElement;
       if (darkMode === true) {
         root.classList.add('dark')
       } else {
         root.classList.remove('dark');
       }
-      localStorage?.setItem('darkMode', JSON.stringify(darkMode))
-      return { darkMode: !darkMode }
+      return { darkMode: !action.payload }
 
     default:
       return { state };

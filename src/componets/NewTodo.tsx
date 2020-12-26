@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { v4 as uuid } from "uuid";
-import { TodosContext, TodosContextType } from "../context/TodosContext";
+import { TodosContext } from "../context/TodosContext";
+import { TodosContextType} from '../types/TodoTypes'
 
 const NewTodo = () => {
   const { addNewTodo } = useContext(TodosContext) as unknown as TodosContextType;

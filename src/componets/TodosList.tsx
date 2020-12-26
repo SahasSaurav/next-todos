@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
-import { TodosContext, Todo, TodosContextType } from "../context/TodosContext";
+import { TodosContext } from "../context/TodosContext";
+import {Todo, TodosContextType } from '../types/TodoTypes'
 import FilterMenu from "./FilterMenu";
 import TodoItem from "./TodoItem";
 

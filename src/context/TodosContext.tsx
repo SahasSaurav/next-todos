@@ -1,21 +1,8 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 import { v4 as uuid } from "uuid";
+import withLocalStorage from "../hoc/withLocalStorage";
 import { todoReducer } from "../reducer/todoReducer";
-
-export interface Todo {
-  id: string;
-  text: string;
-  completed: boolean;
-  toShow: boolean;
-}
-export interface TodosContextType {
-  todos: Todo[];
-  moveItem: (id: string, new_id: string) => void;
-  addNewTodo: (item: Todo) => void;
-  deleteTodo: (id: String) => void;
-  clearCompleted: () => void;
-  toggleCompleted: (id: String) => void;
-}
+import { Todo, TodoContextProps, TodosContextType } from "../types/TodoTypes";
 
 let todoInitialState: Todo[] = [
   {
@@ -52,10 +39,16 @@ let todoInitialState: Todo[] = [
 
 export const TodosContext = createContext<TodosContextType>(null);
 
-const TodosProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const [todoState, todoDispatch] = useReducer(todoReducer, todoInitialState);
+const TodosProvider: React.FC<TodoContextProps> = ({ children, todos }) => {
+  const [todoState, todoDispatch] = useReducer(
+    todoReducer,
+    todoInitialState,
+    () => (todos ? todos : todoInitialState)
+  );
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todoState));
+  }, [todoState]);
 
   const moveItem = (id: string, new_id: string) => {
     todoDispatch({
@@ -87,12 +80,11 @@ const TodosProvider: React.FC<{ children: React.ReactNode }> = ({
       payload: id,
     });
   };
-  
 
   return (
     <TodosContext.Provider
       value={{
-        todos:todoState,
+        todos: todoState,
         addNewTodo,
         deleteTodo,
         clearCompleted,
@@ -105,4 +97,4 @@ const TodosProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-export default TodosProvider;
+export default withLocalStorage(TodosProvider);

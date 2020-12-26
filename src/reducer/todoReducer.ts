@@ -1,10 +1,5 @@
-import { Todo } from '../context/TodosContext';
+import { Todo,TodoActionType } from '../types/TodoTypes';
 
-type TodoActionType = | { type: 'ADD-TODO', payload: Todo } |
-{ type: 'DELETE-TODO', payload: String } |
-{ type: 'TOGGLE-COMPLETED', payload: String } |
-{ type: 'CLEAR-COMPLETED' } |
-{ type: 'DRAG', payload: { id: String, new_id: String } }
 
 export const todoReducer = (state:Todo[], action: TodoActionType) => {
   switch (action.type) {
