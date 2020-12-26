@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { TodosContext,} from "../context/TodosContext";
-import {Todo, TodosContextType } from '../types/TodoTypes'
+import {Todo, TodosContextType } from '../types/TodoTypes';
 interface TodoItemProps {
   todo: Todo;
 }
@@ -61,7 +61,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
           {todo.text}
         </p>
 
-        <button
+        <button aria-label="Delete todo"
           onClick={() => deleteTodo(todo.id)}
           className="ml-auto focus:outline-none delete-btn"
         >

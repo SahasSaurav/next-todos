@@ -33,10 +33,10 @@ const Home: React.FC = (props) => {
       <div className="container mx-auto px-4 py-4 font-josefin-sans ">
         <main className="max-w-xl bg-transparent h-full mx-auto flex flex-col transform  -translate-y-40 md:-translate-y-64 ">
           <TodoHeader />
-          <main>
+          <section>
             <NewTodo />
             <TodosList />
-          </main>
+          </section>
           <p className="text-gray-700  dark:text-gray-400 font-medium text-lg mx-auto mt-6 mb-6">
             Drag and drop to reorder list
           </p>
