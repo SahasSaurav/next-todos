@@ -34,9 +34,9 @@ const TodosList = () => {
         })}
         <li className=" flex justify-between items-center p-4 text-gray-600 dark:text-gray-50">
           <span>{todos.length} items left</span>
-         <span className="hidden sm:block" >
+         <div className="hidden sm:block" >
          <FilterMenu filterBy={filterBy} setFilterBy={setFilterBy} />
-         </span>
+         </div>
           <button
             onClick={clearCompleted}
             className="p-1 cursor-pointer hover:underline focus:text-blue-500 focus:outline-none"
