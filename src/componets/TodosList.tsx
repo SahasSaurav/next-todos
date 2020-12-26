@@ -45,7 +45,7 @@ const TodosList = () => {
           </button>
         </li>
       </ul>
-      <div className="max-w-xl mx-4 mt-8 mb-4 bg-gray-100 dark:bg-gray-700 rounded-lg divide-y divide-gray-400 h-full  flex justify-center  items-center p-4 text-gray-700 dark:text-gray-50 sm:hidden">
+      <div className="max-w-xl mx-4 mt-8 mb-4 bg-white dark:bg-gray-700 rounded-lg divide-y divide-gray-400 h-full  flex justify-center  items-center p-4 text-gray-700 dark:text-gray-50 sm:hidden shadow-md">
         <FilterMenu filterBy={filterBy} setFilterBy={setFilterBy}  />
       </div>
     </>
