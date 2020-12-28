@@ -24,7 +24,11 @@ export const todoReducer = (state:Todo[], action: TodoActionType) => {
       state[dropELIndex] = temp1
       state[dragELIndex] = temp2
       return [...state]
-    default:
+      case 'PERSIST-TODOS' :
+        const todos=action.payload
+        state=action.payload
+        return [...state]
+    default: 
       return state;
   }
 }
