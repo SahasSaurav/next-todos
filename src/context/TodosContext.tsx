@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer, useEffect,useState } from "react";
 import { v4 as uuid } from "uuid";
 import withLocalStorage from "../hoc/withLocalStorage";
 import { todoReducer } from "../reducer/todoReducer";
@@ -46,9 +46,26 @@ const TodosProvider: React.FC<TodoContextProps> = ({ children, todos }) => {
     () => (todos ? todos : todoInitialState)
   );
 
+  const [mount,setMount]=useState<boolean>(false)
+
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todoState));
+    if(todoState && mount){
+      window.localStorage.setItem("todos", JSON.stringify(todoState));
+    }
   }, [todoState]);
+
+  useEffect(() => {
+    setMount(true)
+    const todoArr=window.localStorage.getItem('todos')
+    if(todoArr){
+      const  todos=JSON.parse(todoArr)
+      persistTodos(todos)
+    }
+  }, [])
+
+  const persistTodos=(todos:Todo[])=>{
+    todoDispatch({type:'PERSIST-TODOS',payload:todos})
+  }
 
   const moveItem = (id: string, new_id: string) => {
     todoDispatch({
@@ -90,6 +107,7 @@ const TodosProvider: React.FC<TodoContextProps> = ({ children, todos }) => {
         clearCompleted,
         toggleCompleted,
         moveItem,
+        persistTodos
       }}
     >
       {children}
